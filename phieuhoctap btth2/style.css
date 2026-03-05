@@ -1,0 +1,199 @@
+    /* TODO 1: Dùng universal selector để reset margin và padding về 0 cho toàn trang */
+* { 
+    margin: 0;
+ 	padding: 0;
+ 	box-sizing: border-box;
+ }
+/* TODO 2: Dùng type selector cho body */
+/* Yêu cầu: font-family: Arial; background-color: #f5f5f5; */
+body { 
+    font-family: Arial, sans-serif;
+ 	background-color: #f5f5f5;
+ }
+/* TODO 3: Dùng ID selector cho #main-header */
+/* Yêu cầu: background-color: #333; color: white; text-align: center; padding: 20px; */
+#main-header {
+	background-color: #333;
+	color: white;
+    text-align: center;
+	padding: 20px;
+}
+/* TODO 4: Dùng class selector cho .nav-link */
+/* Yêu cầu: color: #333; text-decoration: none; padding: 10px 15px; */
+ .nav-link {
+    color: #333;
+    text-decoration: none;
+	padding: 10px 15px;
+}
+/* TODO 5: Dùng group selector cho h1, h2, h3 */
+/* Yêu cầu: font-family: 'Georgia', serif; */
+h1, h2, h3{
+    font-family: 'Georgia', serif;
+}
+/* TODO 6: Dùng descendant selector cho nav a */
+/* Yêu cầu: display: inline-block; margin: 0 10px; */
+nav {
+    /* TODO:
+       - display: flex
+       - justify-content: center
+       - align-items: center
+       - gap: 20px
+       - background: #f8f9fa
+       - padding: 15px
+    */
+display: flex;
+justify-content: center;
+align-items: center;
+ gap: 20px;
+ background: #f8f9fa;
+ padding: 15px;
+}
+/* TODO 7: Dùng pseudo-class selector cho a:hover */
+/* Yêu cầu: color: #ff6600; background-color: #eee; */
+a:hover{
+	color: #ff6600;
+	background-color:#eee;
+}
+
+/* Bước 2: Style cho .posts container */
+.posts {
+    /* TODO: Căn giữa, margin trên dưới, max-width */
+    margin: 40px auto;
+    max-width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Bước 3: Style cho .card */
+.card {
+    /* TODO: 
+       - width: 30% (hoặc calc(33.33% - 20px))
+       - display: inline-block
+       - border: 1px solid #ddd
+       - padding: 20px
+       - margin: 10px
+       - background: white
+       - border-radius: 8px
+    */
+    flex: 1 1 300px;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 10px;
+    background: white;
+    border-radius: 8px;
+}
+
+/* Bước 4: Style cho .btn */
+.btn {
+    /* TODO: 
+       - display: inline-block
+       - padding: 8px 16px
+       - background: #007bff
+       - color: white
+       - text-decoration: none
+       - border-radius: 4px
+    */
+    display: inline-block;
+    padding: 8px 16px;
+    background: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.btn:hover {
+    /* TODO: background: #0056b3 */
+    background: #0056b3;
+}
+/* Responsive: Khi màn hình < 768px, card chiếm full width */
+@media (max-width: 768px) {
+    .posts {
+        /* TODO: flex-direction: column */
+flex-direction: column;
+    }
+    
+    .card {
+        /* TODO: flex: 1 1 100% */
+flex: 1 1 100%;		
+    }
+}
+.gallery {
+  
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    max-width: 1200px;
+    margin: 40px auto;
+}
+.item {
+
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    display: flex;
+    justify-content: center;    
+    align-items: center;
+    height: 150px;
+    font-size: 2rem;
+    border-radius: 8px;
+}
+
+/* Responsive: Tự động giảm cột khi màn hình nhỏ */
+@media (max-width: 768px) {
+    .gallery {
+        /* Khi màn hình nhỏ, mới kích hoạt khả năng tự co giãn cột */
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+/* Header sticky */
+#main-header { /* Lưu ý: Dùng ID #main-header cho khớp với HTML của bạn */
+    position: -webkit-sticky; /* Hỗ trợ Safari */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: #333; /* Đảm bảo có nền để không bị lộ nội dung khi lướt */
+    /* TODO: Thêm box-shadow để tạo hiệu ứng nổi */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Nút Scroll to Top */
+.scroll-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    /* TODO: Hoàn thiện các thuộc tính nút bấm */
+    width: 50px;
+    height: 50px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 24px;
+    z-index: 101; /* Nằm trên cả header */
+    transition: all 0.3s ease; /* Thêm hiệu ứng mượt mà */
+}
+
+.scroll-top:hover {
+    /* TODO: background: #0056b3, transform: scale(1.1) */
+    background-color: #0056b3;
+    transform: scale(1.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    nav {
+        /* TODO: flex-direction: column */
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+    }
+
+    #main-header h1 {
+        font-size: 1.5rem; /* Thu nhỏ tiêu đề trên mobile cho cân đối */
+    }
+}
