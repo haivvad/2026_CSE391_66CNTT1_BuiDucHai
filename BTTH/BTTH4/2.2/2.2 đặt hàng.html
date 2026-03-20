@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Đặt Hàng</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        .error {
+            color: red;
+            font-size: 0.9em;
+            display: none;
+        }
+
+        input.valid {
+            border-color: green;
+        }
+
+        input.invalid {
+            border-color: red;
+        }
+
+        .success {
+            color: green;
+            font-size: 1.2em;
+            display: none;
+        }
+
+        #orderForm {
+            max-width: 400px;
+        }
+
+        #totalPrice {
+            font-weight: bold;
+            color: blue;
+        }
+
+        #charCount {
+            font-size: 0.8em;
+            color: gray;
+        }
+
+        #confirmation {
+            display: none;
+            background: #f0f0f0;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Đặt Hàng Sản Phẩm</h1>
+    <form id="orderForm">
+        <div class="form-group">
+            <label for="product">Tên sản phẩm:</label>
+            <select id="product" name="product">
+                <option value="">-- Chọn sản phẩm --</option>
+                <option value="Áo">Áo - 150,000 VND</option>
+                <option value="Quần">Quần - 200,000 VND</option>
+                <option value="Giày">Giày - 300,000 VND</option>
+            </select>
+            <span class="error" id="productError"></span>
+        </div>
+        <div class="form-group">
+            <label for="quantity">Số lượng:</label>
+            <input type="number" id="quantity" name="quantity" min="1" max="99">
+            <span class="error" id="quantityError"></span>
+        </div>
+        <div class="form-group">
+            <label for="deliveryDate">Ngày giao hàng:</label>
+            <input type="date" id="deliveryDate" name="deliveryDate">
+            <span class="error" id="deliveryDateError"></span>
+        </div>
+        <div class="form-group">
+            <label for="address">Địa chỉ giao:</label>
+            <input type="text" id="address" name="address">
+            <span class="error" id="addressError"></span>
+        </div>
+        <div class="form-group">
+            <label for="notes">Ghi chú:</label>
+            <textarea id="notes" name="notes" rows="3"></textarea>
+            <div id="charCount">0/200</div>
+            <span class="error" id="notesError"></span>
+        </div>
+        <div class="form-group">
+            <label>Phương thức thanh toán:</label>
+            <input type="radio" id="cod" name="payment" value="cod">
+            <label for="cod">COD</label>
+            <input type="radio" id="transfer" name="payment" value="transfer">
+            <label for="transfer">Chuyển khoản</label>
+            <input type="radio" id="wallet" name="payment" value="wallet">
+            <label for="wallet">Ví điện tử</label>
+            <span class="error" id="paymentError"></span>
+        </div>
+        <div class="form-group">
+            <p>Tổng tiền: <span id="totalPrice">0 VND</span></p>
+        </div>
+        <button type="submit">Đặt Hàng</button>
+    </form>
+    <div id="confirmation">
+        <h3>Xác nhận đơn hàng</h3>
+        <p id="orderSummary"></p>
+        <button id="confirmBtn">Xác nhận</button>
+        <button id="cancelBtn">Hủy</button>
+    </div>
+    <div class="success" id="successMessage"></div>
+    <script src="script.js"></script>
+</body>
+
+</html>

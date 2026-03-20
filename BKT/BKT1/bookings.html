@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách Đặt Phòng</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav style="position: fixed; top: 10px; right: 10px; z-index: 1000;">
+        <a href="add-booking.html"
+            style="margin-right: 10px; padding: 8px 15px; background-color: #007bff; color: white; text-decoration: none; border-radius: 4px; display: inline-block;">Thêm
+            đặt phòng</a>
+        <a href="bookings.html"
+            style="padding: 8px 15px; background-color: #28a745; color: white; text-decoration: none; border-radius: 4px; display: inline-block;">Quản
+            lí đặt phòng</a>
+    </nav>
+
+    <h2>DANH SÁCH ĐẶT PHÒNG</h2>
+
+    <div class="stats">
+        <strong>Thống kê:</strong><br>
+        Tổng đơn: <span id="totalCount">0</span> |
+        Đã hủy: <span id="cancelCount">0</span> |
+        Phòng trống: <span id="emptyRooms">0</span> |
+        Doanh thu dự kiến: <span id="expectedRevenue">0 VND</span>
+    </div>
+
+    <input type="text" id="searchInput" placeholder="Tìm theo tên hoặc ID...">
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Khách hàng</th>
+                <th>SĐT</th>
+                <th>Loại phòng</th>
+                <th>Người lớn/Trẻ em</th>
+                <th>Ngày nhận</th>
+                <th>Ngày trả</th>
+                <th>Tiết kiệm</th>
+                <th>Trạng thái</th>
+                <th>Hành động</th>
+            </tr>
+        </thead>
+        <tbody id="bookingTableBody">
+        </tbody>
+    </table>
+    <br>
+
+
+    <script src="script.js"></script>
+    <script>
+        // Gọi hàm hiển thị khi trang web load xong
+        window.onload = renderBookings;
+    </script>
+</body>
+
+</html>
